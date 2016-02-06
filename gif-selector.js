@@ -14,3 +14,17 @@ document.addEventListener("mousedown", function(event) {
     event.stopPropagation();
   }
 });
+
+document.addEventListener('DOMSubtreeModified', function() {
+  var items = document.querySelectorAll('.caption-nav-item:not(.caption-nav-item--initialized)');
+  if (items.length > 0) {
+    chrome.runtime.sendMessage({type: 'get_items'}, function(urls) {
+      Array.prototype.slice.call(items).forEach(function(it) {
+        it.classList.add('caption-nav-item--initialized');
+        if (urls.indexOf(it.getElementsByTagName('img')[0].src.replace('/small', '')) >= 0) {
+          it.classList.add('caption-nav-item--gif');
+        }
+      });
+    });
+  }
+});
