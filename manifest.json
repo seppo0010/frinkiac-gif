@@ -7,7 +7,7 @@
 
   "name": "Frinkiac GIF",
   "description": "This extension allows you to create GIFs from Frinkiac",
-  "version": "0.0.1",
+  "version": "0.0.2",
 
   "web_accessible_resources": [
     "ok.png",
