@@ -11,6 +11,7 @@ var process_items = function(items) {
       var gif = new GIF({
         width: items[0].width,
         height: items[0].height,
+        delay: 100,
         workers: 2,
         quality: 10
       });
