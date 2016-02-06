@@ -1,0 +1,32 @@
+{
+  "manifest_version": 2,
+
+  "name": "Frinkiac GIF",
+  "description": "This extension allows you to create GIFs from Frinkiac",
+  "version": "1.0",
+
+  "web_accessible_resources": [
+    "ok.png",
+    "ok_checkmark_green.png"
+  ],
+
+  "background": {
+    "persistent": false,
+    "scripts": ["bg.js"]
+  },
+
+  "browser_action": {
+      "default_icon": "icon.png",
+      "default_popup": "popup.html"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["https://frinkiac.com/*"],
+      "css": ["gif-selector.css"],
+      "js": ["gif-selector.js"]
+    }
+  ],
+  "permissions": [
+  ]
+}
